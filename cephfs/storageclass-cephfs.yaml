@@ -1,0 +1,11 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: dynamic-cephfs
+provisioner: ceph.com/cephfs
+parameters:
+  monitors: 10.102.28.50:6789,10.102.28.51:6789,10.102.28.52:6789
+  adminId: admin
+  adminSecretName: ceph-secret
+  adminSecretNamespace: "kube-system"
+  claimRoot: /volumes/kubernetes
